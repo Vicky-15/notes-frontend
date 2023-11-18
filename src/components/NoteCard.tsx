@@ -1,21 +1,19 @@
 import {
+  Badge,
   Card,
   CardBody,
   CardFooter,
   CardHeader,
   HStack,
   Heading,
-  IconButton,
-  Menu,
-  MenuButton,
-  MenuItem,
-  MenuList,
+  Icon,
   Stack,
-  Badge,
   Text,
+  theme,
 } from "@chakra-ui/react";
 
-import { IoEllipsisVerticalOutline } from "react-icons/io5";
+import { MdOutlineDelete } from "react-icons/md";
+
 import stopPropagation from "../utilities/stopPropagation";
 import NoteTags, { type NoteTag } from "./NoteTags";
 
@@ -30,9 +28,6 @@ const NoteCard = ({ onOpenModal }: Props) => {
     { id: 3, name: "green" },
   ];
 
-  const handleEdit = (data: string) => {
-    console.log(data);
-  };
   const handleDelete = (id: number) => {
     console.log(id);
   };
@@ -42,23 +37,18 @@ const NoteCard = ({ onOpenModal }: Props) => {
       <CardHeader>
         <HStack justifyContent="space-between">
           <Heading size="md">Stuck in Situation:</Heading>
-          <Menu>
-            <MenuButton
-              as={IconButton}
-              aria-label="Manage Menu"
-              icon={<IoEllipsisVerticalOutline />}
-              variant="outline"
-              colorScheme="green"
-              onClick={(event) => event.stopPropagation()}
-            />
-
-            <MenuList>
-              <MenuItem onClick={stopPropagation(handleEdit)}>Edit</MenuItem>
-              <MenuItem onClick={stopPropagation(handleDelete)}>
-                Delete
-              </MenuItem>
-            </MenuList>
-          </Menu>
+          <Icon
+            as={MdOutlineDelete}
+            fontSize="30px"
+            color={theme.colors.red[300]}
+            _hover={{
+              color: theme.colors.red[400],
+            }}
+            onClick={(event) => {
+              stopPropagation(event);
+              handleDelete(23);
+            }}
+          />
         </HStack>
       </CardHeader>
       <CardBody maxHeight={"100px"} overflow="hidden" paddingY={0}>

@@ -27,8 +27,7 @@ const NoteTags = ({ onTagDelete, tags, onTagAdd }: Props) => {
           {onTagDelete && (
             <TagCloseButton
               boxSize="15px"
-              onClick={(event) => {
-                event.stopPropagation();
+              onClick={() => {
                 onTagDelete(tag.id);
               }}
             />

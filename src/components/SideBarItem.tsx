@@ -1,4 +1,4 @@
-import { HStack, Icon, Text, useColorModeValue } from "@chakra-ui/react";
+import { HStack, Icon, Text, theme, useColorModeValue } from "@chakra-ui/react";
 
 import { IconType } from "react-icons";
 
@@ -14,7 +14,7 @@ const SideBarItem = ({ text, icon, setActiveSideBar, isActive }: Props) => {
   return (
     <HStack
       borderRadius={4}
-      bg={isActive ? "coral" : bgColor}
+      bg={isActive ? theme.colors.green[300] : bgColor}
       cursor="pointer"
       spacing={4}
       padding={2}

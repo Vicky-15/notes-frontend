@@ -1,74 +1,76 @@
 import {
-  Badge,
-  Box,
   Card,
   CardBody,
   CardFooter,
   CardHeader,
   HStack,
   Heading,
-  Icon,
+  IconButton,
   Menu,
   MenuButton,
   MenuItem,
   MenuList,
   Stack,
-  Tag,
-  TagCloseButton,
-  TagLabel,
+  Badge,
   Text,
 } from "@chakra-ui/react";
 
 import { IoEllipsisVerticalOutline } from "react-icons/io5";
+import stopPropagation from "../utilities/stopPropagation";
+import NoteTags, { type NoteTag } from "./NoteTags";
 
-const NoteCard = () => {
+interface Props {
+  onOpenModal: () => void;
+}
+
+const NoteCard = ({ onOpenModal }: Props) => {
+  const tags: NoteTag[] = [
+    { id: 1, name: "apple" },
+    { id: 2, name: "orange" },
+    { id: 3, name: "green" },
+  ];
+
+  const handleEdit = (data: string) => {
+    console.log(data);
+  };
+  const handleDelete = (id: number) => {
+    console.log(id);
+  };
+
   return (
-    <Card>
+    <Card cursor="pointer" onClick={onOpenModal}>
       <CardHeader>
         <HStack justifyContent="space-between">
           <Heading size="md">Stuck in Situation:</Heading>
-          <Menu isLazy>
-            <MenuButton cursor="pointer" as={Box} aria-label="Open menu">
-              <Icon as={IoEllipsisVerticalOutline} fontSize="25px" />
-            </MenuButton>
+          <Menu>
+            <MenuButton
+              as={IconButton}
+              aria-label="Manage Menu"
+              icon={<IoEllipsisVerticalOutline />}
+              variant="outline"
+              colorScheme="green"
+              onClick={(event) => event.stopPropagation()}
+            />
 
             <MenuList>
-              <MenuItem>Edit</MenuItem>
-              <MenuItem>Delete</MenuItem>
+              <MenuItem onClick={stopPropagation(handleEdit)}>Edit</MenuItem>
+              <MenuItem onClick={stopPropagation(handleDelete)}>
+                Delete
+              </MenuItem>
             </MenuList>
           </Menu>
         </HStack>
       </CardHeader>
-      <CardBody
-        cursor="pointer"
-        onClick={() => {
-          alert("hello");
-        }}
-        paddingY={0}
-      >
+      <CardBody maxHeight={"100px"} overflow="hidden" paddingY={0}>
         <Text>
-          What are your options? What are your goals? What are your fears?
-          options: don't do anything seriously and keep going, do not deserve
-          the universe help no action needed just be alive
+          What are your options? What are your goals? What are your fears? What
+          are your options? What are your goals? What are your fears?
         </Text>
       </CardBody>
       <CardFooter>
         <Stack spacing={4}>
-          <HStack spacing={4} flexWrap="wrap">
-            {["sm", "sm"].map((size, index) => (
-              <Tag
-                size={size}
-                key={index + "2"}
-                borderRadius="full"
-                variant="solid"
-                colorScheme="green"
-              >
-                <TagLabel>tag</TagLabel>
-                <TagCloseButton />
-              </Tag>
-            ))}
-          </HStack>
-          <Badge width="fit-content" variant="subtle" colorScheme="green">
+          <NoteTags tags={tags} />
+          <Badge width="fit-content" variant="subtle" colorScheme="primary">
             Entertainment
           </Badge>
         </Stack>

@@ -17,6 +17,7 @@ const SearchFilter = ({ isOpen }: Props) => {
         p="15px"
         borderRadius="5px"
         boxShadow="md"
+        zIndex={100}
       >
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore ut
         tempora temporibus delectus ea expedita ipsum accusantium eveniet

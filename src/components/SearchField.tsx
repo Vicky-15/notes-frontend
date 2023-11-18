@@ -13,17 +13,12 @@ import { RxMagnifyingGlass } from "react-icons/rx";
 
 interface Props {
   showFilter: () => void;
-  filterShowState: boolean;
+  filterShowState?: boolean;
   searchQuery: string;
   onQueryChange: (value: string) => void;
 }
 
-const SearchField = ({
-  showFilter,
-  filterShowState,
-  searchQuery,
-  onQueryChange,
-}: Props) => {
+const SearchField = ({ showFilter, searchQuery, onQueryChange }: Props) => {
   const bgColor = useColorModeValue("#e2e8f0", "#474a53");
 
   return (
@@ -48,14 +43,13 @@ const SearchField = ({
         >
           <Icon
             cursor="pointer"
-            onClick={() => !filterShowState && showFilter()}
+            onClick={showFilter}
             as={IoOptionsOutline}
             boxSize="25px"
           />
           <Icon
             cursor="pointer"
             onClick={() => {
-              filterShowState && showFilter();
               onQueryChange("");
             }}
             as={IoCloseOutline}

@@ -1,12 +1,14 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-import { ComponentType, Suspense } from "react";
+import React, { Suspense } from "react";
 import Loader from "../components/Loader";
 
-const LazyLoader = (Component: ComponentType<any>) => (props: any) =>
-  (
-    <Suspense fallback={<Loader />}>
-      <Component {...props} />
-    </Suspense>
-  );
+type FCType<P> = React.FC<P>;
 
+const LazyLoader =
+  <P extends object>(Component: FCType<P>): FCType<P> =>
+  (props: P) =>
+    (
+      <Suspense fallback={<Loader />}>
+        <Component {...props} />
+      </Suspense>
+    );
 export default LazyLoader;

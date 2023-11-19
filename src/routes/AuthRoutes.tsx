@@ -2,6 +2,12 @@ import { type RouteObject } from "react-router-dom";
 
 import AuthLayout from "../layout/AuthLayout";
 import AuthRoutesGuard from "../hoc/AuthRoutesGuard";
+import { lazy } from "react";
+import LazyLoader from "../hoc/LazyLoader";
+
+// page imports
+const Login = LazyLoader(lazy(() => import("../pages/Login")));
+const Register = LazyLoader(lazy(() => import("../pages/Register")));
 
 const AuthRoutes: RouteObject = {
   path: "/",
@@ -14,11 +20,11 @@ const AuthRoutes: RouteObject = {
   children: [
     {
       path: "login",
-      element: <h1>{"hello from AuthLayout login"}</h1>,
+      element: <Login />,
     },
     {
       path: "register",
-      element: <h1>{"hello from AuthLayout register"}</h1>,
+      element: <Register />,
     },
     {
       path: "forgot-password",

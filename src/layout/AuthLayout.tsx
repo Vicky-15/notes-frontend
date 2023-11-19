@@ -3,15 +3,8 @@ import { Outlet } from "react-router-dom";
 
 const AuthLayout = () => {
   return (
-    <Grid
-      templateAreas={{
-        base: `"main"`,
-      }}
-      templateColumns={{
-        base: "1fr",
-      }}
-    >
-      <GridItem area="main">
+    <Grid templateColumns="1fr)" gap={4} h="100vh" placeContent={"center"}>
+      <GridItem colSpan={2}>
         <Outlet />
       </GridItem>
     </Grid>

@@ -1,26 +1,22 @@
 import { HStack, Icon, Text, theme, useColorModeValue } from "@chakra-ui/react";
 
-import { IconType } from "react-icons";
+import { type SideBarItemType } from "../entities";
+import { Link } from "react-router-dom";
 
-export interface Props {
-  text: string;
-  icon: IconType;
-  isActive: boolean;
-  setActiveSideBar: (text: string) => void;
-}
-
-const SideBarItem = ({ text, icon, setActiveSideBar, isActive }: Props) => {
+const SideBarItem = ({ name, icon, isActive, gotoLink }: SideBarItemType) => {
   const bgColor = useColorModeValue("#white", "#474a53");
+  const linkURL = typeof gotoLink === "string" ? gotoLink : gotoLink();
   return (
     <HStack
+      as={Link}
+      to={linkURL}
       borderRadius={4}
       bg={isActive ? theme.colors.green[300] : bgColor}
       cursor="pointer"
       spacing={4}
       padding={2}
-      onClick={() => setActiveSideBar(text)}
     >
-      <Icon as={icon} fontSize="xl" /> <Text fontSize="lg">{text}</Text>
+      <Icon as={icon} fontSize="xl" /> <Text fontSize="lg">{name}</Text>
     </HStack>
   );
 };

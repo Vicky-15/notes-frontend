@@ -1,11 +1,10 @@
 import {
-  Badge,
   Card,
   CardBody,
   CardFooter,
   CardHeader,
-  HStack,
   Heading,
+  HStack,
   Icon,
   Stack,
   Text,
@@ -13,11 +12,12 @@ import {
   useDisclosure,
 } from "@chakra-ui/react";
 
+import { BiCategory } from "react-icons/bi";
 import { MdOutlineDelete } from "react-icons/md";
 
 import stopPropagation from "../utilities/stopPropagation";
-import NoteTags, { type NoteTag } from "./NoteTags";
 import AlertDialogModal from "./AlertDialogModal";
+import NoteTags, { type NoteTag } from "./NoteTags";
 
 interface Props {
   onOpenModal: () => void;
@@ -73,9 +73,10 @@ const NoteCard = ({ onOpenModal }: Props) => {
         <CardFooter>
           <Stack spacing={4}>
             <NoteTags tags={tags} />
-            <Badge width="fit-content" variant="subtle" colorScheme="primary">
-              Entertainment
-            </Badge>
+            <HStack fontSize="sm" alignItems={"center"} width="fit-content">
+              <Icon as={BiCategory} />{" "}
+              <Text fontWeight="bold">Entertainment</Text>
+            </HStack>
           </Stack>
         </CardFooter>
       </Card>

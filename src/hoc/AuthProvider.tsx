@@ -58,8 +58,8 @@ const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
           // put an red notification with the message
         });
     } else {
-      setLoggedIn(true);
-      // setLoggedIn(false);
+      // setLoggedIn(true);
+      setLoggedIn(false);
       setInitialized(true);
     }
   }, []);

@@ -10,7 +10,9 @@ const NavBar = () => {
       spacing={5}
       alignItems="center"
       justifyContent="space-between"
-      padding={"10px"}
+      paddingX={"10px"}
+      my={10}
+      mt={6}
     >
       <HStack spacing={5}>
         <HamBurgerButton />

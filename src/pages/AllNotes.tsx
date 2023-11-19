@@ -12,7 +12,7 @@ const AllNotes = () => {
           <span style={{ color: "RED" }}>
             {" "}
             INFORMATION &nbsp;&nbsp; &nbsp;{" "}
-            <strong style={{ color: "yellow" }}>
+            <strong style={{ color: "coral" }}>
               IN SHORT TIME I COULDNOT ABLE TO FINISH THIS PROJECT(BACKEND)
               ANYWAY, I NOW KNOW MY POTENTIAL OF BUILDING THINGS IN TIME, I WILL
               CONTINUE THIS PROJECT. IM ABLE TO LEARN BACKEND QUICKLY IF HAVE

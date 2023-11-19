@@ -5,11 +5,11 @@ import { Link } from "react-router-dom";
 
 const SideBarItem = ({ name, icon, isActive, gotoLink }: SideBarItemType) => {
   const bgColor = useColorModeValue("#white", "#474a53");
-  const linkURL = typeof gotoLink === "string" ? gotoLink : gotoLink();
+
   return (
     <HStack
       as={Link}
-      to={linkURL}
+      to={gotoLink}
       borderRadius={4}
       bg={isActive ? theme.colors.green[300] : bgColor}
       cursor="pointer"

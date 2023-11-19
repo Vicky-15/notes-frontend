@@ -1,15 +1,11 @@
-import {
-  Badge,
-  Divider,
-  Heading,
-  List,
-  ListItem,
-  Stack,
-  Wrap,
-} from "@chakra-ui/react";
+import { Divider, SimpleGrid, Stack } from "@chakra-ui/react";
+
+import { useEffect } from "react";
+import { useSearchParams } from "react-router-dom";
+import CategoryCard from "../components/CategoryCard";
 import NotesGrid from "../components/NotesGrid";
-import { Category } from "../entities";
 import PageHeading from "../components/PageHeading";
+import { Category } from "../entities";
 
 const Categories = () => {
   const categories: Category[] = [
@@ -21,20 +17,30 @@ const Categories = () => {
     { id: 6, name: "Catgeory 6", notesCount: 23 },
     { id: 7, name: "Catgeory 7", notesCount: 23 },
   ];
+
+  const [URLSearchParams, SetURLSearchParams] = useSearchParams();
+  const paramValue = URLSearchParams.get("categoryId");
+
+  useEffect(() => {
+    if (!paramValue) SetURLSearchParams({ categoryId: categories[0].id + "" });
+
+    console.log(paramValue);
+  }, [paramValue]);
+
   return (
     <Stack divider={<Divider />} spacing={3}>
       <PageHeading>Categories</PageHeading>
 
-      <List as={Wrap}>
+      <SimpleGrid spacing={5} columns={{ base: 2, sm: 3, md: 4, xl: 5 }}>
         {categories.map((category) => (
-          <ListItem as={Stack} key={category.id}>
-            <Heading fontSize="xl">{category.name}</Heading>
-            <Badge colorScheme="green" size="lg">
-              {category.notesCount}
-            </Badge>
-          </ListItem>
+          <CategoryCard
+            key={category.id}
+            isActive={(id) => paramValue === id}
+            setSelectedCategory={(id) => SetURLSearchParams({ categoryId: id })}
+            {...category}
+          />
         ))}
-      </List>
+      </SimpleGrid>
 
       <NotesGrid />
     </Stack>

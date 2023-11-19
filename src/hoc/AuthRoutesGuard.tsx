@@ -12,14 +12,14 @@ const AuthRoutesGuard = ({ children }: Props) => {
   const location = useLocation();
 
   useEffect(() => {
-    if (isLoggedIn) {
-      navigate(location?.state?.from ? location?.state?.from : "/", {
-        state: {
-          from: "",
-        },
-        replace: true,
-      });
-    }
+    // if (isLoggedIn) {
+    //   navigate(location?.state?.from ? location?.state?.from : "/", {
+    //     state: {
+    //       from: "",
+    //     },
+    //     replace: true,
+    //   });
+    // }
   }, [isLoggedIn, navigate, location]);
 
   return children;

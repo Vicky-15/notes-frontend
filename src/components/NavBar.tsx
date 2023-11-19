@@ -1,5 +1,7 @@
-import { HStack, Image } from "@chakra-ui/react";
+import { HStack, Heading, Icon, Image, Tooltip } from "@chakra-ui/react";
 import logo from "../assets/vite.svg";
+
+import { CiLogout } from "react-icons/ci";
 import ColorModeSwitch from "./ColorModeSwitch";
 import HamBurgerButton from "./HamBurgerButton";
 import Search from "./Search";
@@ -21,7 +23,22 @@ const NavBar = () => {
 
       <Search />
 
-      <ColorModeSwitch />
+      <HStack spacing={5}>
+        <HStack>
+          <Heading fontSize="lg">Sokka Aang</Heading>
+          <Tooltip label="Logout" fontSize="sm">
+            <span>
+              <Icon
+                cursor="pointer"
+                as={CiLogout}
+                fontSize="25px"
+                color={"red"}
+              />
+            </span>
+          </Tooltip>
+        </HStack>
+        <ColorModeSwitch />
+      </HStack>
     </HStack>
   );
 };

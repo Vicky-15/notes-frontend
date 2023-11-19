@@ -16,7 +16,7 @@ export interface Note {
   title: string;
   content: string;
   tags: Tag[];
-  categoryId: Category;
+  category: Category;
 }
 
 export interface SideBarItemType {

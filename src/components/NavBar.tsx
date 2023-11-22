@@ -5,6 +5,7 @@ import { CiLogout } from "react-icons/ci";
 import ColorModeSwitch from "./ColorModeSwitch";
 import HamBurgerButton from "./HamBurgerButton";
 import Search from "./Search";
+import { Link } from "react-router-dom";
 
 const NavBar = () => {
   return (
@@ -38,6 +39,19 @@ const NavBar = () => {
           </Tooltip>
         </HStack>
         <ColorModeSwitch />
+        <span>
+          <b>Just to see login/register page</b>
+        </span>
+        <Tooltip label="Login" fontSize="sm">
+          <Link to="/login" style={{ cursor: "pointer" }}>
+            Login
+          </Link>
+        </Tooltip>
+        <Tooltip label="Register" fontSize="sm">
+          <Link to="/register" style={{ cursor: "pointer" }}>
+            Register
+          </Link>
+        </Tooltip>
       </HStack>
     </HStack>
   );

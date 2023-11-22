@@ -10,22 +10,24 @@ const AllNotes = () => {
           All Notes <br />
           <br />
           <span style={{ color: "RED" }}>
-            {" "}
             INFORMATION &nbsp;&nbsp; &nbsp;{" "}
             <strong style={{ color: "coral" }}>
-              IN SHORT TIME I COULDNOT ABLE TO FINISH THIS PROJECT(BACKEND)
-              ANYWAY, I NOW KNOW MY POTENTIAL OF BUILDING THINGS IN TIME, I WILL
-              CONTINUE THIS PROJECT. IM ABLE TO LEARN BACKEND QUICKLY IF HAVE
-              GIVEN A CHANCE
+              [i did this front end from scratch] IN SHORT 48HR'S TIME I
+              COULDNOT ABLE TO finish THIS PROJECT'S(BACKEND)
             </strong>
             <br />
-            TO WHOEVER SEEING THIS, I BUILT THIS FROM SCRACTH WITH REFERING
-            GOOGLE KEEP, IT TAKES TWO DAYS FOR ME, I HAVE EXPERIENCE IN BACKEND
-            TO BE ABLE TO UNDERSTAND AND BUILD ENDPOINT WITH SECURITY MEASURES,
-            I STARTED LEARNING BACKED IN THREE WEEKS AGO ONLY,
+            <strong style={{ color: "coral" }}>
+              To Know my knowledge level in backend, refer this github
+              repository, {"-->"}
+              <a
+                style={{ color: "blue" }}
+                target="_blank"
+                href="https://github.com/Vicky-15/guvi-auth-back-end"
+              >
+                guvi-auth-backend
+              </a>
+            </strong>
             <br />
-            to see what i am capable of in backed please REFER, in my github
-            page, (guvi-backend)
           </span>
         </PageHeading>
         <NotesGrid />
